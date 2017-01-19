@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Appy's Birthday</title>
+		<style type="text/css">
+		body {
+			background: #EEE8AA;
+		}
+
+		#countdownContainer{
+			position: absolute;;
+			top: 50%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			border: 1px solid #999;
+			margin: 15px auto;
+			padding: 10px;
+			background:#4682B4	;
+			-webkit-border-radius: 25px;
+	        -webkit-box-shadow: rgba(110,100,90,.7) -8px -7px 7px inset;
+			z-index: 1;
+		}
+		
+		#topic{
+		   font-family: Tahoma;
+		   text-shadow: rgb(192,192,192) 3px 3px 5px;
+		}
+		
+		#days{
+		    border: 5px solid red;
+			background: #E9967A;
+			-webkit-box-flex: 1;
+		}
+		
+		#hours{
+		    border: 5px solid red;
+			background: #E9967A;
+			-webkit-box-flex: 1;
+		}
+		
+		#minutes{
+		    border: 5px solid red;
+			background: #E9967A;
+			-webkit-box-flex: 1;
+		}
+		
+		#seconds{
+		    border: 5px solid red;
+			background: #E9967A;
+			-webkit-box-flex: 1;
+		}
+		
+		#below{
+		    font-size: 30px;
+			font-family: Comic Sans MS;
+		}
+		
+		#timeout{
+		    position: absolute;;
+			top: 10%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			text-align: center;
+			text-font:  100px;
+			text-weight: bold;
+		}
+		
+		#image{
+		    position: absolute;;
+			top: 50%;
+			left: 50%;
+			transform : translateX(-50%) translateY(-50%);
+			border:2px solid #EEE8AA ;
+			z-index: 25;
+		}
+		
+		
+		
+		#mainh{
+		    z-index=20;
+		}
+		
+		
+		.info {
+			font-size: 80px;
+		}
+		</style>
+	</head>
+	<body >
+	 <div id="mainh">
+	    <h1 id="timeout"></h1>
+		
+		<a href="Appy3.html" id="hoola"><img src="Apy.jpg" id="image" onclick=postscript() height="600" width="700"/></a>
+		
+		<table cellpadding="15px" width="700px" cellspacing="10px" id="countdownContainer">
+			<tr class="info">
+				<td colspan="4"><div id="topic">Appy's Birthday</div></td>
+			</tr>
+			<tr class="info">
+				<td id="days">120</td>
+				<td id="hours">4</td>
+				<td id="minutes">12</td>
+				<td id="seconds">22</td>
+			</tr>
+			<tr>
+				<td id="below">Days</td>
+				<td id="below">Hours</td>
+				<td id="below">Minutes</td>
+				<td id="below">Seconds</td>
+			</tr>
+		</table>
+		
+		
+	 </div>
+		<script type="text/javascript">
+
+			function postscript(){
+			    
+			        window.document.getElementById("image").src="Apy.jpg";
+				    document.body.style.backgroundColor = "4682B4";
+				    var person = prompt("City of my wildest dreams!!");
+				 
+				    if(person=="Florence" || person=="florence"){
+				        window.document.getElementById("hoola").href="Appy2.html";
+				    }
+					
+					else{
+					    window.document.getElementById("hoola").href="Appy.html";
+					}
+				
+			}
+			
+			function message(){
+                window.document.getElementById("countdownContainer").innerHTML="";			   
+				window.document.getElementById("image").src="Appy.jpg";	
+			}
+			
+			function countdown(){
+				var now = new Date();
+				var eventDate = new Date(2017, 01, -08);
+
+				var currentTiime = now.getTime();
+				var eventTime = eventDate.getTime();
+
+				var remTime = eventTime - currentTiime;
+
+				var s = Math.floor(remTime / 1000);
+				var m = Math.floor(s / 60);
+				var h = Math.floor(m / 60);
+				var d = Math.floor(h / 24);
+
+				h %= 24;
+				m %= 60;
+				s %= 60;
+
+				
+				h = (h < 10) ? "0" + h : h;
+				m = (m < 10) ? "0" + m : m;
+				s = (s < 10) ? "0" + s : s;
+				
+				if(d<0){
+				    message();	
+				}
+
+				document.getElementById("days").textContent = d;
+				document.getElementById("days").innerText = d;
+
+				document.getElementById("hours").textContent = h;
+				document.getElementById("minutes").textContent = m;
+				document.getElementById("seconds").textContent = s;
+
+				setTimeout(countdown, 1000);
+				
+			}
+            
+			countdown();
+		</script>
+	</body>
+</html>
